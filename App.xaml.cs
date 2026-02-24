@@ -15,7 +15,13 @@ public partial class App : Application
         {
             InitializeComponent();
             _serviceProvider = serviceProvider;
-            Routing.RegisterRoute(nameof(NotePage), typeof(NotePage));
+			    // Устанавливаем культуру на основе языка устройства
+			var culture = new System.Globalization.CultureInfo(Android.App.Application.Context.Resources.Configuration.Locales.Get(0).ToString());
+			System.Globalization.CultureInfo.DefaultThreadCurrentCulture = culture;
+			System.Globalization.CultureInfo.DefaultThreadCurrentUICulture = culture;
+			Routing.RegisterRoute(nameof(NotePage), typeof(NotePage));
+			
+            //Routing.RegisterRoute(nameof(NotePage), typeof(NotePage));
 
             // Глобальный обработчик непойманных исключений
             AppDomain.CurrentDomain.UnhandledException += (sender, e) =>
