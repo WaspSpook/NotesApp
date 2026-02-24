@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="NotesApp.Views.NotePage"
+             Title="Заметка">
+    <VerticalStackLayout Spacing="20" Padding="20">
+        <Label x:Name="TitleLabel" FontSize="Medium" TextColor="Gray"/>
+        <Editor x:Name="ContentEditor"
+                Placeholder="Введите текст заметки..."
+                AutoSize="TextChanges"
+                HeightRequest="200"/>
+        <Button Text="Сохранить" Clicked="OnSaveClicked"/>
+    </VerticalStackLayout>
+</ContentPage>
